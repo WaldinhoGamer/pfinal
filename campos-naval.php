@@ -11,6 +11,8 @@ function exibeCampo($campo)
 }
 function campoPlayer()
 {
+    $campoPlayer = array_fill(0, 11, array_fill(0, 11, "."));
+
     $campoPlayer[0][0]=null;
     
     $campoPlayer[1][0] = "A";
