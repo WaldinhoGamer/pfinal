@@ -53,14 +53,14 @@ function pedirPosicoes($campoPlayer)
     }
 
     // Validação para não sobrepor barcos
-    if ($campoPlayer[$letraNum][$num] === "🛥️ ") {
+    if ($campoPlayer[$letraNum][$num] === "V") {
         echo "Já existe um barco nesta posição. Tente novamente.\n";
         $numPosicoes--;
         continue;
     }
 
 
-        $campoPlayer[$letraNum][$num] = "🛥️ ";
+        $campoPlayer[$letraNum][$num] = "V";
 
         exibeCampo($campoPlayer);
     }
