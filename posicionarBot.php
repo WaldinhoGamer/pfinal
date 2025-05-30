@@ -1,46 +1,37 @@
 <?php
 
-require "separaC.php";
-require "matrizbase.php";
-require "letraPraNum.php";
 
-function posicaoBot($campoBot)
+require_once "matrizbase.php"; 
+
+function posicaoBot($campoBotEntrada)
 {
-   
-    for($numPosicoes = 1;$numPosicoes <=10;$numPosicoes++){
+    $campoBot = $campoBotEntrada; 
+    $pecasColocadas = 0;
+    $maxTentativasGeral = 1000; // Para evitar loop infinito se algo der muito errado
+    $tentativasAtuais = 0;
 
-        $linha = random_int(1,10);
-        $coluna = random_int(1,10);
+    while ($pecasColocadas < 10 && $tentativasAtuais < $maxTentativasGeral) {
+        $tentativasAtuais++;
 
+        // Gera posições aleatórias. Os índices do campo de jogo são de 1 a 10
+        $linha = random_int(1, 10);
+        $coluna = random_int(1, 10);
 
         // Validação para não sobrepor barcos
-    if ($campoBot[$letraNum][$num] === "V") {
-    
-        $numPosicoes--;
-        continue;
+        
+        if ($campoBot[$linha][$coluna] === "~") {
+            $campoBot[$linha][$coluna] = "V"; 
+            $pecasColocadas++;               
+        }
+      
     }
 
-     
+    if ($pecasColocadas < 10) {
+        
+        echo "Aviso: Apenas $pecasColocadas de 10 peças foram colocadas após $maxTentativasGeral tentativas.\n";
     }
- 
-    
 
-
-
-    
-
-
-        $campoBot[$linha][$coluna] = "V";
-
-        exibeCampo($campoBot);
-    
-
+   
     return $campoBot;
 }
 
-$campoBot = campoBot();
-
-exibeCampo($campoBot);
-$campoBot = posicaoBot($campoBot);
-exibeCampo($campoBot);
-    
