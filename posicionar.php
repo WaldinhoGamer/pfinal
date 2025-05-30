@@ -1,9 +1,8 @@
 <?php
 
-require "separaC.php";
-require "matrizbase.php";
-require "letraPraNum.php";
-
+require_once "separaC.php"; // MUDANÇA
+require_once "matrizbase.php"; // MUDANÇA
+require_once "letraPraNum.php"; 
 function pedirPosicoes($campoPlayer)
 {
    
@@ -72,7 +71,7 @@ $campoPlayer = campoPlayer();
 
 exibeCampo($campoPlayer);
 echo "\n";
-echo "Esse é seu campo! Insira dentro dele seus barcos respeitando o formato das posições, sendo letra e numero( EXEMPLO: A4 ). \n";
+echo "Esse é seu campo! Insira dentro dele seus barcos respeitando o formato das posições, sendo letra e numero( EXEMPLO: A4 ) PS: A letra V representa seus barcos. \n";
 $campoPlayer = pedirPosicoes($campoPlayer);
 exibeCampo($campoPlayer);
     
